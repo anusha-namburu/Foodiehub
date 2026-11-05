@@ -154,7 +154,7 @@ export const fallbackRestaurants = [
     delivery_fee: 25.0,
     min_order: 99.0,
     image_url: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=600&fit=crop",
-    banner_url: "https://images.unsplash.com/photo-1598214886806-c87b84b7078b?w=1200&fit=crop",
+    banner_url: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=1200&fit=crop",
     address: "Brodipet Main Road, Guntur, AP",
     latitude: 16.3072,
     longitude: 80.4375,
