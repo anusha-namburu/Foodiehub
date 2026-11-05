@@ -80,7 +80,7 @@ def seed_database():
         min_order=12.0,
         image_url="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&fit=crop",
-        address="Brodipet 4th Lane, Guntur, AP",
+        address="Amaravathi Road, Gorantla, Guntur, AP",
         is_featured=True,
         is_active=True
     )
@@ -96,7 +96,7 @@ def seed_database():
         min_order=10.0,
         image_url="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&fit=crop",
-        address="Arundelpet Main Road, Guntur, AP",
+        address="Ring Road, Gujjanagundla, Guntur, AP",
         is_featured=True,
         is_active=True
     )
@@ -118,50 +118,50 @@ def seed_database():
     )
 
     r4 = Restaurant(
-        name="Royal Spice Biryani House",
-        description="Slow-cooked dum biryanis infused with saffron, caramelized onions, and royal spices, paired with cooling mint raita and mirchi ka salan.",
-        cuisine_type="Indian, Biryani, Mughlai",
-        rating=4.7,
-        total_reviews=420,
-        delivery_time_min=35,
-        delivery_fee=2.99,
-        min_order=15.0,
-        image_url="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&fit=crop",
-        banner_url="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200&fit=crop",
-        address="Collector Office Road, Guntur, AP",
+        name="Subani Hotel & Mutton Dum Biryani",
+        description="Legendary Guntur culinary icon celebrated for its signature Guntur Gongura Mutton Dum Biryani, fiery Chicken Fry, and fragrant ghee rice.",
+        cuisine_type="Biryani, Andhra, Mughlai",
+        rating=4.9,
+        total_reviews=1420,
+        delivery_time_min=25,
+        delivery_fee=1.99,
+        min_order=12.0,
+        image_url="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&fit=crop",
+        banner_url="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=1200&fit=crop",
+        address="Old Club Road, Kothapet, Guntur, AP",
         is_featured=True,
         is_active=True
     )
 
     r5 = Restaurant(
-        name="Green Bowl Superfoods",
-        description="Organic salad bowls, grain bowls, wild salmon poke, and energizing cold-pressed wellness smoothies made daily.",
-        cuisine_type="Healthy, Salads, Vegan",
-        rating=4.6,
-        total_reviews=195,
-        delivery_time_min=20,
-        delivery_fee=1.49,
-        min_order=10.0,
-        image_url="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&fit=crop",
-        banner_url="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&fit=crop",
-        address="Koretipadu Main Road, Guntur, AP",
-        is_featured=False,
+        name="Naidu Gari Kunda Biryani",
+        description="Famous clay pot slow-cooked biryanis infused with fiery native Guntur chillies, tender Gongura chicken, and rich royal spice aromatics.",
+        cuisine_type="Biryani, Andhra, Clay Pot",
+        rating=4.8,
+        total_reviews=640,
+        delivery_time_min=30,
+        delivery_fee=2.49,
+        min_order=14.0,
+        image_url="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=600&fit=crop",
+        banner_url="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=1200&fit=crop",
+        address="Lakshmipuram Circle, Guntur, AP",
+        is_featured=True,
         is_active=True
     )
 
     r6 = Restaurant(
-        name="Pasta Fresca Cucina",
-        description="Fresh pasta extruded daily from Italian semolina, tossed with 12-hour braised Bolognese, creamy carbonara, and freshly grated Parmigiano.",
-        cuisine_type="Italian, Pasta, Mediterranean",
+        name="Hotel Mourya Grand & Andhra Meals",
+        description="Premier Guntur destination for authentic spicy Andhra silver-plate thalis, fiery Royyala Vepudu (Prawns Fry), and fresh Nellore Chepala Pulusu.",
+        cuisine_type="Andhra, Meals, Seafood",
         rating=4.8,
-        total_reviews=230,
+        total_reviews=720,
         delivery_time_min=28,
         delivery_fee=2.49,
-        min_order=14.0,
-        image_url="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&fit=crop",
-        banner_url="https://images.unsplash.com/photo-1621996346565-e3d5d6281292?w=1200&fit=crop",
-        address="Old Club Road, Guntur, AP",
-        is_featured=False,
+        min_order=15.0,
+        image_url="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=600&fit=crop",
+        banner_url="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&fit=crop",
+        address="Ring Road, Gujjanagundla, Guntur, AP",
+        is_featured=True,
         is_active=True
     )
 
@@ -333,36 +333,36 @@ def seed_database():
             ingredients="Yellowfin tuna, Spicy mayo, Tempura flakes, Green scallions, Nori"
         ),
 
-        # Royal Spice Biryani
+        # Subani Hotel (Guntur Biryani)
         FoodItem(
             restaurant_id=r4.id,
             category_id=cat_biryani.id,
-            name="Hyderabadi Dum Chicken Biryani",
-            description="Tender chicken marinated overnight in yogurt and spices, layered with aged basmati rice, saffron milk, and sealed for slow dum cooking.",
-            price=17.99,
-            discounted_price=15.99,
+            name="Guntur Gongura Mutton Dum Biryani",
+            description="Tender mutton marinated in tangy sour gongura leaves, ghee, and roasted whole spices, slow dum-cooked with fragrant aged basmati.",
+            price=18.99,
+            discounted_price=16.99,
             image_url="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&fit=crop",
             is_veg=False,
             is_spicy=True,
             is_bestseller=True,
             rating=4.9,
             preparation_time=25,
-            ingredients="Aged Basmati, Farm chicken, Saffron, Fried onions, Whole garam spices, Mint raita"
+            ingredients="Tender Mutton, Gongura leaves, Aged Basmati, Pure Ghee, Guntur Spices, Saffron"
         ),
         FoodItem(
             restaurant_id=r4.id,
             category_id=cat_biryani.id,
-            name="Shahi Paneer Tikka Biryani",
-            description="Charcoal-smoked cottage cheese cubes tossed in tandoori marinade, layered with fragrant saffron rice and caramelized cashews.",
-            price=15.99,
-            discounted_price=None,
+            name="Subani Special Chicken Dum Biryani",
+            description="Classic Kothapet-style dum biryani with marinated bone-in chicken, golden caramelized onions, and fiery mirchi ka salan.",
+            price=15.49,
+            discounted_price=13.99,
             image_url="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&fit=crop",
-            is_veg=True,
-            is_spicy=False,
+            is_veg=False,
+            is_spicy=True,
             is_bestseller=True,
-            rating=4.8,
+            rating=4.9,
             preparation_time=20,
-            ingredients="Fresh malai paneer, Roasted cashews, Golden basmati, Biryani masala, Coriander"
+            ingredients="Marinated Chicken, Basmati Rice, Ghee, Mint, Fried Shallots, Salan"
         ),
         FoodItem(
             restaurant_id=r4.id,
@@ -379,55 +379,58 @@ def seed_database():
             ingredients="Alphonso mango puree, Greek curd, Green cardamom, Rose water, Pistachios"
         ),
 
-        # Healthy Bowls
+        # Naidu Gari Kunda Biryani
         FoodItem(
             restaurant_id=r5.id,
-            category_id=cat_healthy.id,
-            name="Mediterranean Salmon Quinoa Bowl",
-            description="Pan-seared wild salmon over fluffy tri-color quinoa, baby spinach, Persian cucumbers, Kalamata olives, feta, and lemon tahini dressing.",
-            price=17.49,
-            discounted_price=15.49,
-            image_url="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&fit=crop",
+            category_id=cat_biryani.id,
+            name="Earthen Pot Kunda Natukodi Biryani",
+            description="Desi free-range country chicken cooked in seasoned red clay pot over slow firewood embers with roasted Guntur dry red chillies.",
+            price=17.99,
+            discounted_price=15.99,
+            image_url="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=600&fit=crop",
             is_veg=False,
+            is_spicy=True,
             is_bestseller=True,
             rating=4.8,
-            preparation_time=15,
-            ingredients="Wild salmon fillet, Tri-color quinoa, Persian cucumber, Kalamata olives, Feta, Lemon tahini"
+            preparation_time=25,
+            ingredients="Country Chicken, Earthen Clay Pot, Sona Masuri, Guntur Red Chillies, Fresh Ginger Garlic"
         ),
         FoodItem(
             restaurant_id=r5.id,
-            category_id=cat_healthy.id,
-            name="Super Green Goddess Avocado Bowl",
-            description="Massaged Tuscan kale, crisp broccolini, edamame, sliced avocado, pumpkin seeds, and green goddess herb dressing.",
-            price=13.99,
+            category_id=cat_biryani.id,
+            name="Clay Pot Gongura Paneer Biryani",
+            description="Fresh cottage cheese tossed in spicy gongura masala and dum cooked inside clay pots.",
+            price=14.99,
             discounted_price=None,
             image_url="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&fit=crop",
             is_veg=True,
+            is_spicy=True,
             is_bestseller=False,
             rating=4.7,
-            preparation_time=12,
-            ingredients="Tuscan kale, Haas avocado, Shelled edamame, Toasted pepitas, Green goddess vinaigrette"
+            preparation_time=20,
+            ingredients="Paneer, Gongura paste, Basmati rice, Ghee, Shahi jeera"
         ),
 
-        # Pasta Fresca Cucina
+        # Hotel Mourya Grand & Andhra Meals
         FoodItem(
             restaurant_id=r6.id,
             category_id=cat_pasta.id,
-            name="Handcrafted Tagliatelle al Tartufo",
-            description="Fresh ribbon tagliatelle tossed in cultured brown butter, creamy pecorino emulsion, and shaved black winter truffles.",
-            price=21.99,
-            discounted_price=18.99,
-            image_url="https://images.unsplash.com/photo-1621996346565-e3d5d6281292?w=600&fit=crop",
-            is_veg=True,
+            name="Spicy Guntur Royyala Vepudu (Prawns Fry)",
+            description="Juicy fresh prawns shallow-fried with crushed black pepper, fiery Guntur red chilli flakes, curry leaves, and green chillies.",
+            price=16.49,
+            discounted_price=14.49,
+            image_url="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=600&fit=crop",
+            is_veg=False,
+            is_spicy=True,
             is_bestseller=True,
             rating=4.9,
             preparation_time=20,
-            ingredients="Handmade egg pasta, Winter truffle, Butter, Pecorino Romano, Cracked black pepper"
+            ingredients="Fresh Bay of Bengal Prawns, Curry Leaves, Guntur Crushed Chillies, Black Pepper"
         ),
         FoodItem(
             restaurant_id=r6.id,
             category_id=cat_pasta.id,
-            name="Slow-Braised Bolognese Rigatoni",
+            name="Grand Andhra Bhojanam Royal Thali",
             description="Bronze-die rigatoni loaded with our 8-hour braised beef and pork ragu, finished with grated aged Parmigiano Reggiano.",
             price=18.49,
             discounted_price=None,

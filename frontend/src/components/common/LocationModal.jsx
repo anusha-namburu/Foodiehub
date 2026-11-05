@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Navigation, X, Check, Search, AlertCircle, Compass } from 'lucide-react';
-import { useLocation, PRESET_LOCATIONS } from '../../context/LocationContext';
+import { useLocation, PRESET_LOCATIONS, GUNTUR_LOCATIONS } from '../../context/LocationContext';
 
 const LocationModal = () => {
   const {
@@ -20,6 +20,7 @@ const LocationModal = () => {
 
   const filteredPresets = PRESET_LOCATIONS.filter(
     (loc) =>
+      (loc.name && loc.name.toLowerCase().includes(searchQuery.toLowerCase())) ||
       loc.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
       loc.address.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -125,26 +126,62 @@ const LocationModal = () => {
             </span>
           </div>
 
-          {/* Popular Cities Grid */}
+          {/* Guntur Delivery Neighborhoods */}
           <div className="space-y-2">
-            <span className="text-[11px] font-bold text-stone-600 uppercase tracking-wider block">
-              Popular Delivery Hubs
-            </span>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-48 overflow-y-auto pr-1">
-              {filteredPresets.map((loc) => {
-                const isSelected = currentLocation.city === loc.city;
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-black text-brand-700 uppercase tracking-wider flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-brand-600" />
+                Guntur Delivery Zones
+              </span>
+              <span className="text-[10px] text-stone-600 font-medium">Fast 20-30 min delivery</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {GUNTUR_LOCATIONS.map((loc) => {
+                const isSelected =
+                  currentLocation.address === loc.address ||
+                  (currentLocation.city === 'Guntur' && currentLocation.address.includes(loc.name));
                 return (
                   <button
-                    key={loc.city}
+                    key={loc.name}
                     onClick={() => selectLocation(loc)}
-                    className={`p-2.5 rounded-xl border text-left text-xs transition-all flex items-center justify-between ${
+                    className={`p-2 rounded-xl border text-left text-xs transition-all flex flex-col justify-between group ${
+                      isSelected
+                        ? 'border-brand-500 bg-brand-50 font-bold text-brand-900 shadow-sm'
+                        : 'border-stone-200 hover:border-brand-300 hover:bg-stone-50 bg-white text-stone-700'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between w-full">
+                      <span className="font-bold text-stone-900 group-hover:text-brand-600">{loc.name}</span>
+                      {isSelected && <Check className="w-3.5 h-3.5 text-brand-600 shrink-0" />}
+                    </div>
+                    <span className="text-[10px] text-stone-600 truncate mt-0.5">{loc.tag}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* All Delivery Hubs */}
+          <div className="space-y-2 pt-1 border-t border-stone-100">
+            <span className="text-[11px] font-bold text-stone-600 uppercase tracking-wider block">
+              All Available Hubs
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-36 overflow-y-auto pr-1">
+              {filteredPresets.map((loc) => {
+                const label = loc.name || loc.city;
+                const isSelected = currentLocation.address === loc.address;
+                return (
+                  <button
+                    key={`${loc.city}-${label}`}
+                    onClick={() => selectLocation(loc)}
+                    className={`p-2 rounded-xl border text-left text-xs transition-all flex items-center justify-between ${
                       isSelected
                         ? 'border-brand-500 bg-brand-50/70 font-bold text-brand-900'
                         : 'border-stone-200 hover:border-stone-300 bg-white text-stone-700'
                     }`}
                   >
-                    <span className="truncate">{loc.city}</span>
-                    {isSelected && <Check className="w-3.5 h-3.5 text-brand-600 shrink-0" />}
+                    <span className="truncate">{label}</span>
+                    {isSelected && <Check className="w-3 h-3 text-brand-600 shrink-0" />}
                   </button>
                 );
               })}

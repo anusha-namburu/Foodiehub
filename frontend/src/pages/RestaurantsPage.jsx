@@ -29,10 +29,10 @@ const RestaurantsPage = () => {
         const unique = Array.from(new Set(['All', 'Smoothies', ...filtered]));
         setCuisines(unique);
       } else {
-        setCuisines(['All', 'Smoothies', 'Biryani', 'Pizza', 'Burgers', 'Sushi', 'Salads', 'Pasta', 'Desserts']);
+        setCuisines(['All', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
       }
     }).catch(() => {
-      setCuisines(['All', 'Smoothies', 'Biryani', 'Pizza', 'Burgers', 'Sushi', 'Salads', 'Pasta', 'Desserts']);
+      setCuisines(['All', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
     });
   }, []);
 
@@ -146,7 +146,7 @@ const RestaurantsPage = () => {
             Explore Restaurants
           </h1>
           <p className="text-xs sm:text-sm text-stone-600 font-medium">
-            Discover {restaurants.length} kitchens ready to deliver to {currentLocation.city}
+            Discover {restaurants.length} kitchens ready to deliver to {currentLocation.name ? `${currentLocation.name}, ${currentLocation.city}` : currentLocation.city}
           </p>
         </div>
 

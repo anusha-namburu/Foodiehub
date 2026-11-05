@@ -2,16 +2,25 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const LocationContext = createContext(null);
 
+export const GUNTUR_LOCATIONS = [
+  { name: 'Brodipet', city: 'Guntur', state: 'AP', address: 'Brodipet 4th Lane, Guntur, AP 522002', latitude: 16.3067, longitude: 80.4365, tag: 'Heart of Guntur' },
+  { name: 'Arundelpet', city: 'Guntur', state: 'AP', address: 'Arundelpet Main Road, Guntur, AP 522002', latitude: 16.3015, longitude: 80.4412, tag: 'Commercial Hub' },
+  { name: 'Lakshmipuram', city: 'Guntur', state: 'AP', address: 'Lakshmipuram Circle, Guntur, AP 522007', latitude: 16.2945, longitude: 80.4328, tag: 'Prime Dining' },
+  { name: 'Kothapet', city: 'Guntur', state: 'AP', address: 'Old Club Road, Kothapet, Guntur, AP 522001', latitude: 16.3120, longitude: 80.4480, tag: 'Biryani Hub' },
+  { name: 'Pattabhipuram', city: 'Guntur', state: 'AP', address: 'Pattabhipuram Main Road, Guntur, AP 522006', latitude: 16.2890, longitude: 80.4280, tag: 'Residential' },
+  { name: 'Gujjanagundla', city: 'Guntur', state: 'AP', address: 'Ring Road, Gujjanagundla, Guntur, AP 522006', latitude: 16.2980, longitude: 80.4210, tag: 'Ring Road' },
+  { name: 'Gorantla', city: 'Guntur', state: 'AP', address: 'Amaravathi Road, Gorantla, Guntur, AP 522034', latitude: 16.3210, longitude: 80.4150, tag: 'Amaravathi Way' },
+  { name: 'Vidyanagar', city: 'Guntur', state: 'AP', address: 'Vidyanagar 1st Line, Guntur, AP 522007', latitude: 16.3150, longitude: 80.4250, tag: 'Town Center' },
+  { name: 'Nagarampalem', city: 'Guntur', state: 'AP', address: 'Collectorate Complex, Nagarampalem, Guntur, AP 522004', latitude: 16.2915, longitude: 80.4180, tag: 'Collectorate' },
+  { name: 'Old Guntur', city: 'Guntur', state: 'AP', address: 'Jinnah Tower Centre, Old Guntur, AP 522001', latitude: 16.3030, longitude: 80.4530, tag: 'Heritage Market' },
+];
+
 export const PRESET_LOCATIONS = [
-  { city: 'Guntur', state: 'AP', address: 'Brodipet & Arundelpet, Guntur, AP 522002', latitude: 16.3067, longitude: 80.4365 },
-  { city: 'Vijayawada', state: 'AP', address: 'MG Road, Vijayawada, AP 520010', latitude: 16.5062, longitude: 80.6480 },
-  { city: 'Hyderabad', state: 'TS', address: 'Hitec City, Hyderabad, TS 500081', latitude: 17.3850, longitude: 78.4867 },
-  { city: 'Bangalore', state: 'KA', address: 'Indiranagar, Bangalore, India', latitude: 12.9784, longitude: 77.6408 },
-  { city: 'Mumbai', state: 'MH', address: 'Bandra West, Mumbai, India', latitude: 19.0596, longitude: 72.8295 },
-  { city: 'New Delhi', state: 'DL', address: 'Connaught Place, New Delhi, India', latitude: 28.6139, longitude: 77.2090 },
-  { city: 'San Francisco', state: 'CA', address: 'Market St & 4th, San Francisco, CA', latitude: 37.7858, longitude: -122.4064 },
-  { city: 'New York', state: 'NY', address: '5th Ave & 42nd St, New York, NY', latitude: 40.7527, longitude: -73.9818 },
-  { city: 'London', state: 'UK', address: 'Oxford Street, London, UK', latitude: 51.5154, longitude: -0.1419 },
+  ...GUNTUR_LOCATIONS,
+  { name: 'Vijayawada', city: 'Vijayawada', state: 'AP', address: 'MG Road, Vijayawada, AP 520010', latitude: 16.5062, longitude: 80.6480, tag: 'Nearby City' },
+  { name: 'Hyderabad', city: 'Hyderabad', state: 'TS', address: 'Hitec City, Hyderabad, TS 500081', latitude: 17.3850, longitude: 78.4867, tag: 'Metro' },
+  { name: 'Bangalore', city: 'Bangalore', state: 'KA', address: 'Indiranagar, Bangalore, India', latitude: 12.9784, longitude: 77.6408, tag: 'Metro' },
+  { name: 'Chennai', city: 'Chennai', state: 'TN', address: 'T. Nagar, Chennai, India', latitude: 13.0418, longitude: 80.2341, tag: 'Metro' },
 ];
 
 export const LocationProvider = ({ children }) => {
