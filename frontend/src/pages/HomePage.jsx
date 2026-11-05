@@ -11,12 +11,10 @@ import {
   Sparkles, 
   Tag, 
   Quote, 
-  MapPin, 
-  Navigation 
+  MapPin 
 } from 'lucide-react';
 import { restaurantAPI, foodAPI, couponAPI, reviewAPI } from '../api/client';
 import { fallbackRestaurants, fallbackCategories, fallbackFoods, fallbackCoupons } from '../utils/fallbackData';
-import { useLocation } from '../context/LocationContext';
 import RestaurantCard from '../components/restaurant/RestaurantCard';
 import FoodCard from '../components/food/FoodCard';
 import FoodDetailModal from '../components/food/FoodDetailModal';
@@ -25,7 +23,6 @@ import { useCart } from '../context/CartContext';
 const HomePage = () => {
   const navigate = useNavigate();
   const { showToast } = useCart();
-  const { currentLocation, setIsLocationModalOpen } = useLocation();
   const [categories, setCategories] = useState(fallbackCategories);
   const [featuredRestaurants, setFeaturedRestaurants] = useState(fallbackRestaurants.slice(0, 3));
   const [bestsellers, setBestsellers] = useState(fallbackFoods);
@@ -89,17 +86,6 @@ const HomePage = () => {
             
             {/* Left Copy */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              
-              {/* GPS Location Pill */}
-              <button
-                onClick={() => setIsLocationModalOpen(true)}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200/90 hover:border-brand-300 text-stone-700 text-xs font-bold shadow-xs hover:shadow-sm transition-all"
-              >
-                <Navigation className="w-3.5 h-3.5 text-brand-600 animate-pulse" />
-                <span>Deliver to: <strong className="text-brand-600">{currentLocation.name ? `${currentLocation.name}, ${currentLocation.city}` : currentLocation.city}</strong></span>
-                <span className="text-[10px] bg-brand-50 text-brand-700 px-1.5 py-0.2 rounded font-black">GPS</span>
-              </button>
-
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-[1.15]">
                 Delicious Food, <br className="hidden sm:inline" />
                 <span className="text-brand-600 underline decoration-amber-400 decoration-wavy decoration-2">
