@@ -142,17 +142,36 @@ export const fallbackRestaurants = [
     longitude: 80.4210,
     is_featured: true,
     is_active: true
+  },
+  {
+    id: 9,
+    name: "The Belgian Waffle Co.",
+    description: "Freshly baked warm and crispy Belgian waffles, waffle cakes, and stroopwafels layered with rich Belgian chocolate, Nutella, and fruit spreads.",
+    cuisine_type: "Waffles, Desserts, Bakery",
+    rating: 4.9,
+    total_reviews: 820,
+    delivery_time_min: 20,
+    delivery_fee: 25.0,
+    min_order: 99.0,
+    image_url: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=600&fit=crop",
+    banner_url: "https://images.unsplash.com/photo-1598214886806-c87b84b7078b?w=1200&fit=crop",
+    address: "Brodipet Main Road, Guntur, AP",
+    latitude: 16.3072,
+    longitude: 80.4375,
+    is_featured: true,
+    is_active: true
   }
 ];
 
 export const fallbackCategories = [
-  { id: 1, name: "Smoothies", slug: "smoothies", image_url: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&fit=crop", items_count: 4 },
-  { id: 2, name: "Biryani & Andhra", slug: "biryani", image_url: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&fit=crop", items_count: 4 },
-  { id: 3, name: "Tiffins & South Indian", slug: "tiffins", image_url: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&fit=crop", items_count: 3 },
-  { id: 4, name: "Pizza", slug: "pizza", image_url: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&fit=crop", items_count: 2 },
-  { id: 5, name: "Burgers", slug: "burgers", image_url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&fit=crop", items_count: 2 },
-  { id: 6, name: "Snacks & Street Food", slug: "snacks", image_url: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&fit=crop", items_count: 2 },
-  { id: 7, name: "Meals & Curries", slug: "meals", image_url: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=400&fit=crop", items_count: 2 }
+  { id: 1, name: "Waffles", slug: "waffles", image_url: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=400&fit=crop", items_count: 4 },
+  { id: 2, name: "Smoothies", slug: "smoothies", image_url: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&fit=crop", items_count: 4 },
+  { id: 3, name: "Biryani & Andhra", slug: "biryani", image_url: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&fit=crop", items_count: 4 },
+  { id: 4, name: "Tiffins & South Indian", slug: "tiffins", image_url: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&fit=crop", items_count: 3 },
+  { id: 5, name: "Pizza", slug: "pizza", image_url: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&fit=crop", items_count: 2 },
+  { id: 6, name: "Burgers", slug: "burgers", image_url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&fit=crop", items_count: 2 },
+  { id: 7, name: "Snacks & Street Food", slug: "snacks", image_url: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&fit=crop", items_count: 2 },
+  { id: 8, name: "Meals & Curries", slug: "meals", image_url: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=400&fit=crop", items_count: 2 }
 ];
 
 export const fallbackFoods = [
@@ -380,6 +399,71 @@ export const fallbackFoods = [
     rating: 4.8,
     preparation_time: 15,
     ingredients: "Smashed Patty, Brioche Bun, Peri-Peri Spices, Aged Cheddar, Jalapeños, House Mayo"
+  },
+  // The Belgian Waffle Co. (Guntur)
+  {
+    id: 301,
+    restaurant_id: 9,
+    restaurant_name: "The Belgian Waffle Co.",
+    category_id: 1,
+    name: "Triple Chocolate Belgian Waffle",
+    description: "Crispy warm golden waffle freshly baked and loaded with three decadent layers: melted dark, milk, and white Belgian chocolate ganache.",
+    price: 160.0,
+    discounted_price: 139.0,
+    image_url: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: true,
+    rating: 4.9,
+    preparation_time: 12,
+    ingredients: "Fresh waffle batter, Dark Belgian chocolate, White chocolate, Milk chocolate, Crispy pearl toppings"
+  },
+  {
+    id: 302,
+    restaurant_id: 9,
+    restaurant_name: "The Belgian Waffle Co.",
+    category_id: 1,
+    name: "Nutella & Roasted Almond Waffle",
+    description: "Freshly pressed crispy waffle layered with rich hazelnut Nutella spread, crunchy toasted California almond slivers, and dark cocoa drizzle.",
+    price: 175.0,
+    discounted_price: 155.0,
+    image_url: "https://images.unsplash.com/photo-1598214886806-c87b84b7078b?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: true,
+    rating: 4.9,
+    preparation_time: 12,
+    ingredients: "Belgian waffle, Nutella hazelnut spread, Roasted almonds, Chocolate fudge"
+  },
+  {
+    id: 303,
+    restaurant_id: 9,
+    restaurant_name: "The Belgian Waffle Co.",
+    category_id: 1,
+    name: "Strawberry Cream Cheese Waffle",
+    description: "Golden crisp waffle topped with luscious sweet strawberry compote, Philadelphia cream cheese, and a light dusting of powdered sugar.",
+    price: 150.0,
+    discounted_price: null,
+    image_url: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: false,
+    rating: 4.8,
+    preparation_time: 10,
+    ingredients: "Crisp waffle, Strawberry fruit compote, Cream cheese, Icing sugar"
+  },
+  {
+    id: 304,
+    restaurant_id: 9,
+    restaurant_name: "The Belgian Waffle Co.",
+    category_id: 1,
+    name: "Death by Chocolate Double Waffle Cake",
+    description: "Two layers of dark chocolate waffle layered and crowned with warm Belgian fudge, chocolate sprinkles, and choco chips.",
+    price: 240.0,
+    discounted_price: 210.0,
+    image_url: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: true,
+    rating: 5.0,
+    preparation_time: 15,
+    ingredients: "Chocolate waffle layers, Warm fudge ganache, Dark chocolate chips, Cocoa powder"
   }
 ];
 

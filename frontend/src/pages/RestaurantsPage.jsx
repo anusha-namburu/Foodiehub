@@ -26,13 +26,13 @@ const RestaurantsPage = () => {
     restaurantAPI.getCuisines().then((res) => {
       if (res.success && res.cuisines?.length > 0) {
         const filtered = res.cuisines.filter((c) => c !== 'Drinks' && c !== 'Drinks & Beverages');
-        const unique = Array.from(new Set(['All', 'Smoothies', ...filtered]));
+        const unique = Array.from(new Set(['All', 'Waffles', 'Smoothies', ...filtered]));
         setCuisines(unique);
       } else {
-        setCuisines(['All', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
+        setCuisines(['All', 'Waffles', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
       }
     }).catch(() => {
-      setCuisines(['All', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
+      setCuisines(['All', 'Waffles', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
     });
   }, []);
 

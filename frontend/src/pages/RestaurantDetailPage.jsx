@@ -67,6 +67,7 @@ const RestaurantDetailPage = () => {
         let cat = 'Specialties';
         const nameLower = dish.name.toLowerCase();
         if (nameLower.includes('biryani')) cat = 'Biryani & Rice';
+        else if (nameLower.includes('waffle')) cat = 'Belgian Waffles & Treats';
         else if (nameLower.includes('dosa') || nameLower.includes('idli')) cat = 'Tiffins & Breakfast';
         else if (nameLower.includes('smoothie') || nameLower.includes('shake') || nameLower.includes('lassi')) cat = 'Smoothies & Shakes';
         else if (nameLower.includes('pizza')) cat = 'Woodfired Pizzas';
