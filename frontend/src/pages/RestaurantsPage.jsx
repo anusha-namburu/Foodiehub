@@ -25,12 +25,13 @@ const RestaurantsPage = () => {
   useEffect(() => {
     restaurantAPI.getCuisines().then((res) => {
       if (res.success && res.cuisines?.length > 0) {
-        setCuisines(['All', ...res.cuisines]);
+        const unique = Array.from(new Set(['All', 'Smoothies', 'Drinks', ...res.cuisines]));
+        setCuisines(unique);
       } else {
-        setCuisines(['All', 'Italian', 'Pizza', 'Burgers', 'Sushi', 'Biryani', 'Salads', 'Pasta']);
+        setCuisines(['All', 'Smoothies', 'Drinks', 'Biryani', 'Pizza', 'Burgers', 'Sushi', 'Salads', 'Pasta', 'Desserts']);
       }
     }).catch(() => {
-      setCuisines(['All', 'Italian', 'Pizza', 'Burgers', 'Sushi', 'Biryani', 'Salads', 'Pasta']);
+      setCuisines(['All', 'Smoothies', 'Drinks', 'Biryani', 'Pizza', 'Burgers', 'Sushi', 'Salads', 'Pasta', 'Desserts']);
     });
   }, []);
 

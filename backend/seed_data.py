@@ -55,16 +55,17 @@ def seed_database():
     db.session.add_all([addr1, addr2])
 
     # 2. Categories
+    cat_smoothies = Category(name="Smoothies", slug="smoothies", image_url="https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&fit=crop", description="Fresh fruit, protein & detox smoothies")
+    cat_drinks = Category(name="Drinks & Beverages", slug="drinks", image_url="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&fit=crop", description="Craft mocktails, teas, cold brews & fresh juices")
+    cat_biryani = Category(name="Biryani & Bowls", slug="biryani", image_url="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&fit=crop", description="Aromatic spiced rice and curry bowls")
     cat_pizza = Category(name="Pizza", slug="pizza", image_url="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&fit=crop", description="Woodfired artisanal pizzas")
     cat_burger = Category(name="Burgers", slug="burgers", image_url="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&fit=crop", description="Juicy smashed & gourmet burgers")
     cat_sushi = Category(name="Sushi", slug="sushi", image_url="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&fit=crop", description="Fresh sashimi, nigiri & rolls")
-    cat_biryani = Category(name="Biryani & Bowls", slug="biryani", image_url="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&fit=crop", description="Aromatic spiced rice and curry bowls")
     cat_pasta = Category(name="Pasta", slug="pasta", image_url="https://images.unsplash.com/photo-1621996346565-e3d5d6281292?w=400&fit=crop", description="Handmade pastas & rich sauces")
     cat_dessert = Category(name="Desserts", slug="desserts", image_url="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&fit=crop", description="Sweet indulgence, cakes & shakes")
     cat_healthy = Category(name="Healthy & Bowls", slug="healthy", image_url="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&fit=crop", description="Nutritious greens & superfoods")
-    cat_drinks = Category(name="Drinks & Beverages", slug="drinks", image_url="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&fit=crop", description="Craft mocktails, teas & fresh juices")
 
-    categories = [cat_pizza, cat_burger, cat_sushi, cat_biryani, cat_pasta, cat_dessert, cat_healthy, cat_drinks]
+    categories = [cat_smoothies, cat_drinks, cat_biryani, cat_pizza, cat_burger, cat_sushi, cat_pasta, cat_dessert, cat_healthy]
     db.session.add_all(categories)
     db.session.flush()
 

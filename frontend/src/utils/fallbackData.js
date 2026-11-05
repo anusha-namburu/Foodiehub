@@ -106,21 +106,103 @@ export const fallbackRestaurants = [
     longitude: 80.4390,
     is_featured: false,
     is_active: true
+  },
+  {
+    id: 7,
+    name: "PureBlend Smoothies & Shakes",
+    description: "Cold-pressed fresh fruit smoothies, thick Belgian chocolate shakes, protein bowls, and immunity boosting herbal tonics.",
+    cuisine_type: "Smoothies, Drinks, Shakes, Healthy",
+    rating: 4.9,
+    total_reviews: 388,
+    delivery_time_min: 15,
+    delivery_fee: 1.49,
+    min_order: 8.0,
+    image_url: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=600&fit=crop",
+    banner_url: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=1200&fit=crop",
+    address: "Brodipet Main Road, Guntur, AP",
+    latitude: 16.3060,
+    longitude: 80.4370,
+    is_featured: true,
+    is_active: true
   }
 ];
 
 export const fallbackCategories = [
-  { id: 1, name: "Pizza", slug: "pizza", image_url: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&fit=crop", items_count: 3 },
-  { id: 2, name: "Burgers", slug: "burgers", image_url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&fit=crop", items_count: 3 },
-  { id: 3, name: "Sushi", slug: "sushi", image_url: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&fit=crop", items_count: 3 },
-  { id: 4, name: "Biryani & Bowls", slug: "biryani", image_url: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&fit=crop", items_count: 2 },
-  { id: 5, name: "Pasta", slug: "pasta", image_url: "https://images.unsplash.com/photo-1621996346565-e3d5d6281292?w=400&fit=crop", items_count: 2 },
-  { id: 6, name: "Desserts", slug: "desserts", image_url: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&fit=crop", items_count: 1 },
-  { id: 7, name: "Healthy & Bowls", slug: "healthy", image_url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&fit=crop", items_count: 2 },
-  { id: 8, name: "Drinks", slug: "drinks", image_url: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&fit=crop", items_count: 2 }
+  { id: 1, name: "Smoothies", slug: "smoothies", image_url: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&fit=crop", items_count: 4 },
+  { id: 2, name: "Drinks", slug: "drinks", image_url: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&fit=crop", items_count: 3 },
+  { id: 3, name: "Biryani & Bowls", slug: "biryani", image_url: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&fit=crop", items_count: 2 },
+  { id: 4, name: "Pizza", slug: "pizza", image_url: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&fit=crop", items_count: 3 },
+  { id: 5, name: "Burgers", slug: "burgers", image_url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&fit=crop", items_count: 3 },
+  { id: 6, name: "Sushi", slug: "sushi", image_url: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&fit=crop", items_count: 3 },
+  { id: 7, name: "Pasta", slug: "pasta", image_url: "https://images.unsplash.com/photo-1621996346565-e3d5d6281292?w=400&fit=crop", items_count: 2 },
+  { id: 8, name: "Healthy & Bowls", slug: "healthy", image_url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&fit=crop", items_count: 2 }
 ];
 
 export const fallbackFoods = [
+  {
+    id: 101,
+    restaurant_id: 7,
+    restaurant_name: "PureBlend Smoothies & Shakes",
+    category_id: 1,
+    name: "Tropical Mango & Passionfruit Smoothie",
+    description: "Sun-ripened Alphonso mangoes blended with tart passionfruit pulp, Greek yogurt, chia seeds, and wildflower honey.",
+    price: 6.99,
+    discounted_price: 5.99,
+    image_url: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: true,
+    rating: 4.9,
+    preparation_time: 10,
+    ingredients: "Alphonso mango, Passionfruit, Greek yogurt, Chia seeds, Honey"
+  },
+  {
+    id: 102,
+    restaurant_id: 7,
+    restaurant_name: "PureBlend Smoothies & Shakes",
+    category_id: 1,
+    name: "Wild Berry & Acai Protein Power Smoothie",
+    description: "Rich blend of organic acai berries, blueberries, strawberries, plant protein, and almond milk topped with granola.",
+    price: 7.49,
+    discounted_price: 6.49,
+    image_url: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: true,
+    rating: 4.9,
+    preparation_time: 10,
+    ingredients: "Organic acai, Blueberries, Strawberries, Almond milk, Whey protein, Granola"
+  },
+  {
+    id: 103,
+    restaurant_id: 7,
+    restaurant_name: "PureBlend Smoothies & Shakes",
+    category_id: 2,
+    name: "Cold Brew Iced Caramel Macchiato",
+    description: "16-hour slow steeped cold brew espresso poured over creamy chilled milk with house-made salted caramel drizzle.",
+    price: 5.49,
+    discounted_price: null,
+    image_url: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: true,
+    rating: 4.8,
+    preparation_time: 5,
+    ingredients: "Cold brew espresso, Whole milk, Salted caramel syrup, Crushed ice"
+  },
+  {
+    id: 104,
+    restaurant_id: 7,
+    restaurant_name: "PureBlend Smoothies & Shakes",
+    category_id: 1,
+    name: "Green Detox Avocado & Spinach Smoothie",
+    description: "Creamy Hass avocado whipped with baby spinach, green apple, ginger zest, coconut water, and lime juice.",
+    price: 6.49,
+    discounted_price: null,
+    image_url: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&fit=crop",
+    is_veg: true,
+    is_bestseller: false,
+    rating: 4.7,
+    preparation_time: 8,
+    ingredients: "Hass avocado, Baby spinach, Green apple, Tender coconut water, Lime"
+  },
   {
     id: 1,
     restaurant_id: 1,
