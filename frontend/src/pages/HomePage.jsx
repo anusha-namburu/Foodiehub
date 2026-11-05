@@ -96,7 +96,7 @@ const HomePage = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200/90 hover:border-brand-300 text-stone-700 text-xs font-bold shadow-xs hover:shadow-sm transition-all"
               >
                 <Navigation className="w-3.5 h-3.5 text-brand-600 animate-pulse" />
-                <span>Deliver to: <strong className="text-brand-600">{currentLocation.city}</strong></span>
+                <span>Deliver to: <strong className="text-brand-600">{currentLocation.name ? `${currentLocation.name}, ${currentLocation.city}` : currentLocation.city}</strong></span>
                 <span className="text-[10px] bg-brand-50 text-brand-700 px-1.5 py-0.2 rounded font-black">GPS</span>
               </button>
 

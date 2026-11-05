@@ -25,12 +25,14 @@ const RestaurantsPage = () => {
   useEffect(() => {
     restaurantAPI.getCuisines().then((res) => {
       if (res.success && res.cuisines?.length > 0) {
-        setCuisines(['All', ...res.cuisines]);
+        const filtered = res.cuisines.filter((c) => c !== 'Drinks' && c !== 'Drinks & Beverages');
+        const unique = Array.from(new Set(['All', 'Smoothies', ...filtered]));
+        setCuisines(unique);
       } else {
-        setCuisines(['All', 'Italian', 'Pizza', 'Burgers', 'Sushi', 'Biryani', 'Salads', 'Pasta']);
+        setCuisines(['All', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
       }
     }).catch(() => {
-      setCuisines(['All', 'Italian', 'Pizza', 'Burgers', 'Sushi', 'Biryani', 'Salads', 'Pasta']);
+      setCuisines(['All', 'Biryani', 'Andhra', 'Tiffins', 'Smoothies', 'Pizza', 'Burgers', 'Snacks', 'Meals']);
     });
   }, []);
 
@@ -144,7 +146,7 @@ const RestaurantsPage = () => {
             Explore Restaurants
           </h1>
           <p className="text-xs sm:text-sm text-stone-600 font-medium">
-            Discover {restaurants.length} kitchens ready to deliver to {currentLocation.city}
+            Discover {restaurants.length} kitchens ready to deliver to {currentLocation.name ? `${currentLocation.name}, ${currentLocation.city}` : currentLocation.city}
           </p>
         </div>
 

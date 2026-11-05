@@ -73,7 +73,7 @@ const Navbar = () => {
                 <MapPin className="w-3.5 h-3.5 text-brand-600 shrink-0" />
               )}
               <span className="truncate">
-                {currentLocation.city || 'Set Location'}
+                {currentLocation.name ? `${currentLocation.name}, Guntur` : (currentLocation.city || 'Set Location')}
               </span>
               <span className="text-[10px] text-brand-600 font-extrabold uppercase shrink-0 bg-brand-100/80 px-1.5 py-0.2 rounded-md">
                 GPS
@@ -231,7 +231,7 @@ const Navbar = () => {
           >
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-brand-600" />
-              <span>Location: {currentLocation.city}</span>
+              <span>Location: {currentLocation.name ? `${currentLocation.name}, Guntur` : currentLocation.city}</span>
             </div>
             <span className="text-[10px] text-brand-600 uppercase font-black">Change (GPS)</span>
           </button>
