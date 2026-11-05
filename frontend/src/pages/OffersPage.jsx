@@ -54,14 +54,14 @@ const OffersPage = () => {
               <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-stone-900 text-white">
                 {coupon.discount_type === 'percentage'
                   ? `${coupon.discount_value}% OFF`
-                  : `$${coupon.discount_value} OFF`}
+                  : `₹${coupon.discount_value} OFF`}
               </span>
             </div>
 
             <div className="space-y-1">
               <h3 className="text-lg font-black text-stone-900">{coupon.description}</h3>
               <p className="text-xs text-stone-600">
-                Minimum order amount of ${coupon.min_order_amount.toFixed(2)} required.
+                Minimum order amount of ₹${Math.round(coupon.min_order_amount)} required.
               </p>
             </div>
 

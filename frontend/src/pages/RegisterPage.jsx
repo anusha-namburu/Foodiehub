@@ -62,7 +62,7 @@ const RegisterPage = () => {
           </Link>
           <h1 className="text-xl font-black text-stone-900">Create Your Account</h1>
           <p className="text-xs text-stone-600">
-            Join thousands of foodies and get $10 off your first meal order
+            Join thousands of foodies and get ₹100 off your first meal order
           </p>
         </div>
 

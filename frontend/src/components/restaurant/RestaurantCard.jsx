@@ -107,11 +107,11 @@ const RestaurantCard = ({ restaurant }) => {
               {restaurant.delivery_fee === 0 ? (
                 <strong className="text-emerald-600 font-bold">Free Delivery</strong>
               ) : (
-                `$${restaurant.delivery_fee.toFixed(2)} Delivery`
+                `₹${Math.round(restaurant.delivery_fee)} Delivery`
               )}
             </span>
           </div>
-          <span>Min. ${restaurant.min_order.toFixed(0)}</span>
+          <span>Min. ₹${Math.round(restaurant.min_order)}</span>
         </div>
       </div>
     </Link>

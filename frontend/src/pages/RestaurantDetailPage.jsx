@@ -249,7 +249,7 @@ const RestaurantDetailPage = () => {
                 </div>
                 <div className="flex items-center gap-1">
                   <Bike className="w-4 h-4 text-emerald-400" />
-                  <span>${restaurant.delivery_fee.toFixed(2)} delivery</span>
+                  <span>₹{Math.round(restaurant.delivery_fee)} delivery</span>
                 </div>
               </div>
             </div>
