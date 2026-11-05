@@ -56,7 +56,6 @@ def seed_database():
 
     # 2. Categories
     cat_smoothies = Category(name="Smoothies", slug="smoothies", image_url="https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&fit=crop", description="Fresh fruit, protein & detox smoothies")
-    cat_drinks = Category(name="Drinks & Beverages", slug="drinks", image_url="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&fit=crop", description="Craft mocktails, teas, cold brews & fresh juices")
     cat_biryani = Category(name="Biryani & Bowls", slug="biryani", image_url="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&fit=crop", description="Aromatic spiced rice and curry bowls")
     cat_pizza = Category(name="Pizza", slug="pizza", image_url="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&fit=crop", description="Woodfired artisanal pizzas")
     cat_burger = Category(name="Burgers", slug="burgers", image_url="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&fit=crop", description="Juicy smashed & gourmet burgers")
@@ -65,7 +64,7 @@ def seed_database():
     cat_dessert = Category(name="Desserts", slug="desserts", image_url="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&fit=crop", description="Sweet indulgence, cakes & shakes")
     cat_healthy = Category(name="Healthy & Bowls", slug="healthy", image_url="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&fit=crop", description="Nutritious greens & superfoods")
 
-    categories = [cat_smoothies, cat_drinks, cat_biryani, cat_pizza, cat_burger, cat_sushi, cat_pasta, cat_dessert, cat_healthy]
+    categories = [cat_smoothies, cat_biryani, cat_pizza, cat_burger, cat_sushi, cat_pasta, cat_dessert, cat_healthy]
     db.session.add_all(categories)
     db.session.flush()
 
@@ -276,7 +275,7 @@ def seed_database():
         ),
         FoodItem(
             restaurant_id=r2.id,
-            category_id=cat_drinks.id,
+            category_id=cat_smoothies.id,
             name="Craft Salted Caramel Milkshake",
             description="Thick handcrafted vanilla bean shake swirled with house-made salted caramel and crushed butter toffee crunch.",
             price=6.99,
@@ -367,7 +366,7 @@ def seed_database():
         ),
         FoodItem(
             restaurant_id=r4.id,
-            category_id=cat_drinks.id,
+            category_id=cat_smoothies.id,
             name="Alphonso Mango Lassi",
             description="Rich smoothie prepared with chilled sweet mango pulp, probiotic yogurt, and a sprinkle of ground green cardamom.",
             price=5.49,
