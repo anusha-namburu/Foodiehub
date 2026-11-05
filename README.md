@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🍔 FoodieHub – Premium Online Food Ordering & Delivery Platform
 
 **FoodieHub** is a modern, commercial-grade, responsive full-stack food delivery web application built with a high-performance **React + Tailwind CSS** frontend, a scalable **Python Flask REST API** backend, and **MySQL / SQLAlchemy ORM** database architecture.
@@ -156,3 +157,6 @@ FoodieHub includes `backend/schema.sql` containing full DDL for:
 - `reviews`
 - `coupons`
 - `favourites`
+=======
+# Foodiehub
+>>>>>>> 7e1b95956322ec90b3b857271ed9640b9f6d7458
