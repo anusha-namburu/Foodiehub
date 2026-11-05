@@ -473,7 +473,7 @@ const CheckoutPage = () => {
                     <span className="font-semibold text-stone-800 truncate">{food.name}</span>
                   </div>
                   <span className="font-bold text-stone-900 shrink-0">
-                    ${(price * item.quantity).toFixed(2)}
+                    ₹{Math.round(price * item.quantity)}
                   </span>
                 </div>
               );
@@ -484,25 +484,25 @@ const CheckoutPage = () => {
           <div className="space-y-2 pt-3 border-t border-stone-100 text-xs text-stone-600">
             <div className="flex justify-between">
               <span>Subtotal</span>
-              <span className="font-semibold text-stone-900">${subtotal.toFixed(2)}</span>
+              <span className="font-semibold text-stone-900">₹{Math.round(subtotal)}</span>
             </div>
             <div className="flex justify-between">
               <span>Delivery Fee</span>
-              <span className="font-semibold text-stone-900">${deliveryFee.toFixed(2)}</span>
+              <span className="font-semibold text-stone-900">₹{Math.round(deliveryFee)}</span>
             </div>
             <div className="flex justify-between">
-              <span>Estimated Tax (8%)</span>
-              <span className="font-semibold text-stone-900">${tax.toFixed(2)}</span>
+              <span>GST & Restaurant Charges (5%)</span>
+              <span className="font-semibold text-stone-900">₹{Math.round(tax)}</span>
             </div>
             {discount > 0 && (
               <div className="flex justify-between text-emerald-600 font-semibold">
                 <span>Coupon ({coupon?.code})</span>
-                <span>-${discount.toFixed(2)}</span>
+                <span>-₹{Math.round(discount)}</span>
               </div>
             )}
             <div className="flex justify-between pt-3 border-t border-stone-200 text-base font-black text-stone-900">
               <span>Total to Pay</span>
-              <span className="text-brand-600">${total.toFixed(2)}</span>
+              <span className="text-brand-600">₹{Math.round(total)}</span>
             </div>
           </div>
 
@@ -516,7 +516,7 @@ const CheckoutPage = () => {
               <span>Placing Your Feast...</span>
             ) : (
               <>
-                <span>Place Order • ${total.toFixed(2)}</span>
+                <span>Place Order • ₹{Math.round(total)}</span>
                 <ArrowRight className="w-4 h-4" />
               </>
             )}

@@ -264,7 +264,7 @@ const CustomerDashboardPage = () => {
                         {order.items?.map((i) => `${i.quantity}x ${i.food_name}`).join(', ')}
                       </p>
                       <p className="text-[11px] text-stone-600">
-                        Placed on {order.created_at?.split('T')[0]} • Total: ${order.total_amount.toFixed(2)}
+                        Placed on {order.created_at?.split('T')[0]} • Total: ₹{Math.round(order.total_amount)}
                       </p>
                     </div>
                   </div>

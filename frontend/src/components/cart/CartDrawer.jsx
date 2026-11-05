@@ -126,7 +126,7 @@ const CartDrawer = () => {
                         <div className="flex-1 min-w-0">
                           <h4 className="text-sm font-bold text-stone-900 truncate">{food.name}</h4>
                           <p className="text-xs font-semibold text-brand-600 mb-2">
-                            ${price.toFixed(2)}
+                            ₹{Math.round(price)}
                           </p>
 
                           {/* Qty controls */}
@@ -151,7 +151,7 @@ const CartDrawer = () => {
                               </button>
                             </div>
                             <span className="text-xs font-bold text-stone-800 ml-auto">
-                              ${(price * item.quantity).toFixed(2)}
+                              ₹{Math.round(price * item.quantity)}
                             </span>
                           </div>
                         </div>
@@ -180,7 +180,7 @@ const CartDrawer = () => {
                         <Tag className="w-4 h-4 text-emerald-600" />
                         <div>
                           <span className="font-bold text-emerald-800">{coupon.code}</span>
-                          <span className="text-emerald-600 ml-1">(-${coupon.discount.toFixed(2)})</span>
+                          <span className="text-emerald-600 ml-1">(-₹{Math.round(coupon.discount)})</span>
                         </div>
                       </div>
                       <button
@@ -216,25 +216,25 @@ const CartDrawer = () => {
                   <div className="space-y-1.5 text-xs text-stone-600">
                     <div className="flex justify-between">
                       <span>Item Subtotal</span>
-                      <span className="font-semibold text-stone-800">${subtotal.toFixed(2)}</span>
+                      <span className="font-semibold text-stone-800">₹{Math.round(subtotal)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Standard Delivery</span>
-                      <span className="font-semibold text-stone-800">${deliveryFee.toFixed(2)}</span>
+                      <span className="font-semibold text-stone-800">₹{Math.round(deliveryFee)}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Taxes & Fees (8%)</span>
-                      <span className="font-semibold text-stone-800">${tax.toFixed(2)}</span>
+                      <span>Taxes & GST (5%)</span>
+                      <span className="font-semibold text-stone-800">₹{Math.round(tax)}</span>
                     </div>
                     {discount > 0 && (
                       <div className="flex justify-between text-emerald-600 font-medium">
                         <span>Coupon Savings</span>
-                        <span>-${discount.toFixed(2)}</span>
+                        <span>-₹{Math.round(discount)}</span>
                       </div>
                     )}
                     <div className="flex justify-between pt-2 border-t border-stone-200 text-sm font-extrabold text-stone-900">
                       <span>Total Amount</span>
-                      <span className="text-brand-600">${total.toFixed(2)}</span>
+                      <span className="text-brand-600">₹{Math.round(total)}</span>
                     </div>
                   </div>
 

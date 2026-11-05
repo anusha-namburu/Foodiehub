@@ -85,11 +85,11 @@ const FoodCard = ({ food, onOpenDetails }) => {
           <div className="flex flex-col">
             <div className="flex items-baseline gap-1.5">
               <span className="text-lg font-extrabold text-stone-900">
-                ${currentPrice.toFixed(2)}
+                ₹{Math.round(currentPrice)}
               </span>
               {hasDiscount && (
                 <span className="text-xs text-stone-600 line-through">
-                  ${food.price.toFixed(2)}
+                  ₹{Math.round(food.price)}
                 </span>
               )}
             </div>

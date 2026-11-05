@@ -276,7 +276,7 @@ const OrderTrackingPage = () => {
                   </span>
                   <span className="font-semibold text-stone-800">{item.food_name}</span>
                 </div>
-                <span className="font-bold text-stone-900">${item.total_price.toFixed(2)}</span>
+                <span className="font-bold text-stone-900">₹{Math.round(item.total_price)}</span>
               </div>
             ))}
           </div>
@@ -284,21 +284,21 @@ const OrderTrackingPage = () => {
           <div className="pt-3 border-t border-stone-100 space-y-1.5 text-xs text-stone-600">
             <div className="flex justify-between">
               <span>Subtotal</span>
-              <span>${order.subtotal?.toFixed(2)}</span>
+              <span>₹{Math.round(order.subtotal || 0)}</span>
             </div>
             <div className="flex justify-between">
               <span>Delivery Fee</span>
-              <span>${order.delivery_fee?.toFixed(2)}</span>
+              <span>₹{Math.round(order.delivery_fee || 0)}</span>
             </div>
             {order.discount > 0 && (
               <div className="flex justify-between text-emerald-600 font-semibold">
                 <span>Discount ({order.coupon_code || 'PROMO'})</span>
-                <span>-${order.discount?.toFixed(2)}</span>
+                <span>-₹{Math.round(order.discount)}</span>
               </div>
             )}
             <div className="flex justify-between pt-2 border-t border-stone-200 text-sm font-black text-stone-900">
               <span>Total Paid</span>
-              <span className="text-brand-600">${order.total_amount?.toFixed(2)}</span>
+              <span className="text-brand-600">₹{Math.round(order.total_amount || 0)}</span>
             </div>
           </div>
         </div>

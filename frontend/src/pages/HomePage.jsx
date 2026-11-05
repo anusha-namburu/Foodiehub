@@ -263,7 +263,7 @@ const HomePage = () => {
                   >
                     <div>
                       <span className="text-xs text-amber-300 font-semibold uppercase tracking-wider block">
-                        {coup.discount_type === 'percentage' ? `${coup.discount_value}% OFF` : `$${coup.discount_value} OFF`}
+                        {coup.discount_type === 'percentage' ? `${coup.discount_value}% OFF` : `₹${coup.discount_value} OFF`}
                       </span>
                       <p className="text-xs text-stone-200 mt-0.5 max-w-[180px] truncate">{coup.description}</p>
                     </div>
@@ -334,7 +334,7 @@ const HomePage = () => {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-brand-500 text-white p-8 sm:p-12 text-center space-y-6 shadow-xl shadow-brand-500/20 relative overflow-hidden">
           <div className="max-w-xl mx-auto space-y-2">
-            <h3 className="text-2xl sm:text-3xl font-black">Get $10 Off Your Next Order</h3>
+            <h3 className="text-2xl sm:text-3xl font-black">Get ₹100 Off Your Next Order</h3>
             <p className="text-xs sm:text-sm text-brand-100 leading-relaxed">
               Subscribe to the FoodieHub newsletter to receive secret weekend coupon codes, chef specials, and new restaurant openings.
             </p>

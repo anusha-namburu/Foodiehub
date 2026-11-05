@@ -344,10 +344,10 @@ const AdminDashboardPage = () => {
                   <DollarSign className="w-4 h-4 text-emerald-600" />
                 </div>
                 <div className="text-2xl font-black text-stone-900">
-                  ${stats.total_revenue.toFixed(2)}
+                  ₹{Math.round(stats.total_revenue)}
                 </div>
                 <p className="text-[11px] text-emerald-600 font-semibold">
-                  Today: ${stats.today_sales.toFixed(2)}
+                  Today: ₹{Math.round(stats.today_sales)}
                 </p>
               </div>
 
@@ -425,7 +425,7 @@ const AdminDashboardPage = () => {
                         </td>
                         <td className="py-3 px-3 text-stone-600">{order.restaurant_name}</td>
                         <td className="py-3 px-3 font-bold text-stone-900">
-                          ${order.total_amount.toFixed(2)}
+                          ₹{Math.round(order.total_amount)}
                         </td>
                         <td className="py-3 px-3">
                           <span
@@ -505,7 +505,7 @@ const AdminDashboardPage = () => {
                         {o.items?.map((i) => `${i.quantity}x ${i.food_name}`).join(', ')}
                       </td>
                       <td className="py-3 px-3 font-bold text-stone-900">
-                        ${o.total_amount.toFixed(2)}
+                        ₹{Math.round(o.total_amount)}
                       </td>
                       <td className="py-3 px-3">
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-100 text-stone-800">
@@ -602,11 +602,11 @@ const AdminDashboardPage = () => {
                   </div>
                   <div>
                     <label className="block text-[11px] font-bold text-stone-600 uppercase mb-1">
-                      Delivery Fee ($)
+                      Delivery Fee (₹)
                     </label>
                     <input
                       type="number"
-                      step="0.01"
+                      step="1"
                       required
                       value={newRestaurant.delivery_fee}
                       onChange={(e) => setNewRestaurant({ ...newRestaurant, delivery_fee: e.target.value })}
@@ -615,7 +615,7 @@ const AdminDashboardPage = () => {
                   </div>
                   <div>
                     <label className="block text-[11px] font-bold text-stone-600 uppercase mb-1">
-                      Min Order ($)
+                      Min Order (₹)
                     </label>
                     <input
                       type="number"
@@ -689,7 +689,7 @@ const AdminDashboardPage = () => {
                       <h4 className="text-sm font-bold text-stone-900 truncate">{rest.name}</h4>
                       <p className="text-xs text-stone-600 line-clamp-1">{rest.cuisine_type}</p>
                       <p className="text-[11px] text-stone-600 mt-1">
-                        ⭐ {rest.rating} • {rest.delivery_time_min} mins • ${rest.delivery_fee} fee
+                        ⭐ {rest.rating} • {rest.delivery_time_min} mins • ₹{rest.delivery_fee} fee
                       </p>
                     </div>
                   </div>
@@ -786,11 +786,11 @@ const AdminDashboardPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
                     <label className="block text-[11px] font-bold text-stone-600 uppercase mb-1">
-                      Regular Price ($)
+                      Regular Price (₹)
                     </label>
                     <input
                       type="number"
-                      step="0.01"
+                      step="1"
                       required
                       value={newFood.price}
                       onChange={(e) => setNewFood({ ...newFood, price: e.target.value })}
@@ -799,7 +799,7 @@ const AdminDashboardPage = () => {
                   </div>
                   <div>
                     <label className="block text-[11px] font-bold text-stone-600 uppercase mb-1">
-                      Discounted Price ($ Optional)
+                      Discounted Price (₹ Optional)
                     </label>
                     <input
                       type="number"
@@ -929,7 +929,7 @@ const AdminDashboardPage = () => {
                         {food.category_name || 'General'}
                       </td>
                       <td className="py-2.5 px-3 font-bold text-stone-900">
-                        ${food.price.toFixed(2)}
+                        ₹{Math.round(food.price)}
                       </td>
                       <td className="py-2.5 px-3">
                         <span

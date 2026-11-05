@@ -99,11 +99,11 @@ const FoodDetailModal = ({ food, onClose }) => {
               </div>
               <div className="text-right">
                 <span className="text-xl font-extrabold text-stone-900">
-                  ${currentPrice.toFixed(2)}
+                  ₹{Math.round(currentPrice)}
                 </span>
                 {food.discounted_price && (
                   <span className="text-xs text-stone-600 line-through ml-2">
-                    ${food.price.toFixed(2)}
+                    ₹{Math.round(food.price)}
                   </span>
                 )}
               </div>
@@ -181,7 +181,7 @@ const FoodDetailModal = ({ food, onClose }) => {
               className="flex-1 py-3.5 px-6 rounded-full text-sm font-bold bg-brand-500 hover:bg-brand-600 text-white shadow-md shadow-brand-500/20 flex items-center justify-center gap-2 transition-all"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span>Add to Basket • ${totalPrice}</span>
+              <span>Add to Basket • ₹{Math.round(totalPrice)}</span>
             </button>
           </div>
         </motion.div>

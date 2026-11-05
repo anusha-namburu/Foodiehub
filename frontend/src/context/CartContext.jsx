@@ -192,7 +192,7 @@ export const CartProvider = ({ children }) => {
           discount: res.discount,
           description: res.coupon.description,
         });
-        showToast(`Coupon ${res.coupon.code} applied! Saved $${res.discount.toFixed(2)}`);
+        showToast(`Coupon ${res.coupon.code} applied! Saved ₹${Math.round(res.discount)}`);
         return { success: true };
       }
     } catch (err) {
