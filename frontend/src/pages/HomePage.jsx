@@ -11,10 +11,12 @@ import {
   Sparkles, 
   Tag, 
   Quote, 
-  CheckCircle, 
-  Send 
+  MapPin, 
+  Navigation 
 } from 'lucide-react';
 import { restaurantAPI, foodAPI, couponAPI, reviewAPI } from '../api/client';
+import { fallbackRestaurants, fallbackCategories, fallbackFoods, fallbackCoupons } from '../utils/fallbackData';
+import { useLocation } from '../context/LocationContext';
 import RestaurantCard from '../components/restaurant/RestaurantCard';
 import FoodCard from '../components/food/FoodCard';
 import FoodDetailModal from '../components/food/FoodDetailModal';
@@ -23,10 +25,11 @@ import { useCart } from '../context/CartContext';
 const HomePage = () => {
   const navigate = useNavigate();
   const { showToast } = useCart();
-  const [categories, setCategories] = useState([]);
-  const [featuredRestaurants, setFeaturedRestaurants] = useState([]);
-  const [bestsellers, setBestsellers] = useState([]);
-  const [coupons, setCoupons] = useState([]);
+  const { currentLocation, setIsLocationModalOpen } = useLocation();
+  const [categories, setCategories] = useState(fallbackCategories);
+  const [featuredRestaurants, setFeaturedRestaurants] = useState(fallbackRestaurants.slice(0, 3));
+  const [bestsellers, setBestsellers] = useState(fallbackFoods);
+  const [coupons, setCoupons] = useState(fallbackCoupons);
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,20 +42,20 @@ const HomePage = () => {
       try {
         setLoading(true);
         const [catRes, restRes, foodRes, coupRes, revRes] = await Promise.all([
-          foodAPI.getCategories(),
-          restaurantAPI.getAll({ featured: 'true' }),
-          foodAPI.getBestsellers(8),
-          couponAPI.getCoupons(),
-          reviewAPI.getReviews({ featured: 'true' }),
+          foodAPI.getCategories().catch(() => ({ success: false })),
+          restaurantAPI.getAll({ featured: 'true' }).catch(() => ({ success: false })),
+          foodAPI.getBestsellers(8).catch(() => ({ success: false })),
+          couponAPI.getCoupons().catch(() => ({ success: false })),
+          reviewAPI.getReviews({ featured: 'true' }).catch(() => ({ success: false })),
         ]);
 
-        if (catRes.success) setCategories(catRes.categories || []);
-        if (restRes.success) setFeaturedRestaurants(restRes.restaurants || []);
-        if (foodRes.success) setBestsellers(foodRes.items || []);
-        if (coupRes.success) setCoupons(coupRes.coupons || []);
-        if (revRes.success) setReviews(revRes.reviews || []);
+        if (catRes.success && catRes.categories?.length > 0) setCategories(catRes.categories);
+        if (restRes.success && restRes.restaurants?.length > 0) setFeaturedRestaurants(restRes.restaurants);
+        if (foodRes.success && foodRes.items?.length > 0) setBestsellers(foodRes.items);
+        if (coupRes.success && coupRes.coupons?.length > 0) setCoupons(coupRes.coupons);
+        if (revRes.success && revRes.reviews?.length > 0) setReviews(revRes.reviews);
       } catch (err) {
-        console.error('Home load error:', err);
+        console.warn('Backend unavailable, using initial data');
       } finally {
         setLoading(false);
       }
@@ -86,10 +89,16 @@ const HomePage = () => {
             
             {/* Left Copy */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100/70 border border-brand-200 text-brand-700 text-xs font-bold tracking-wide uppercase">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Lightning Fast Delivery Guaranteed</span>
-              </div>
+              
+              {/* GPS Location Pill */}
+              <button
+                onClick={() => setIsLocationModalOpen(true)}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200/90 hover:border-brand-300 text-stone-700 text-xs font-bold shadow-xs hover:shadow-sm transition-all"
+              >
+                <Navigation className="w-3.5 h-3.5 text-brand-600 animate-pulse" />
+                <span>Deliver to: <strong className="text-brand-600">{currentLocation.city}</strong></span>
+                <span className="text-[10px] bg-brand-50 text-brand-700 px-1.5 py-0.2 rounded font-black">GPS</span>
+              </button>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-[1.15]">
                 Delicious Food, <br className="hidden sm:inline" />
@@ -142,10 +151,8 @@ const HomePage = () => {
             {/* Right Visual Floating Collage */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto w-full max-w-md lg:max-w-none aspect-square">
-                {/* Background decorative blob */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-400/20 to-amber-300/30 rounded-full blur-3xl -z-10 animate-pulse" />
                 
-                {/* Main Hero Food Image */}
                 <img
                   src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&fit=crop"
                   alt="Gourmet Food Feast"
@@ -224,7 +231,7 @@ const HomePage = () => {
                 {cat.name}
               </span>
               <span className="text-[10px] text-stone-600 font-medium">
-                {cat.items_count} items
+                {cat.items_count || 3} items
               </span>
             </Link>
           ))}
@@ -323,64 +330,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* 6. CUSTOMER REVIEWS */}
-      {reviews.length > 0 && (
-        <section className="bg-cream-100/60 py-16 border-y border-stone-200/60">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-600">Real Feedback</span>
-              <h2 className="text-2xl sm:text-3xl font-black text-stone-900">Loved by Thousands of Foodies</h2>
-              <p className="text-xs sm:text-sm text-stone-600">
-                Discover why food lovers choose FoodieHub every day for their breakfasts, lunches, and midnight cravings.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {reviews.map((rev) => (
-                <div
-                  key={rev.id}
-                  className="bg-white p-6 rounded-3xl border border-stone-200/80 shadow-soft flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-4 h-4 ${
-                              i < Math.floor(rev.rating)
-                                ? 'fill-amber-500 text-amber-500'
-                                : 'text-stone-300'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                      <Quote className="w-6 h-6 text-brand-200" />
-                    </div>
-                    <p className="text-xs sm:text-sm text-stone-700 leading-relaxed italic">
-                      "{rev.comment}"
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-3 pt-6 mt-6 border-t border-stone-100">
-                    <img
-                      src={rev.user_avatar || `https://api.dicebear.com/7.x/adventurer/svg?seed=${rev.user_name}`}
-                      alt={rev.user_name}
-                      className="w-10 h-10 rounded-full object-cover border border-brand-200"
-                    />
-                    <div>
-                      <h4 className="text-xs font-bold text-stone-900">{rev.user_name}</h4>
-                      <span className="text-[10px] text-stone-600">Verified Foodie • {rev.created_at || 'Recent'}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 7. NEWSLETTER SECTION */}
+      {/* 6. NEWSLETTER SECTION */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-brand-500 text-white p-8 sm:p-12 text-center space-y-6 shadow-xl shadow-brand-500/20 relative overflow-hidden">
           <div className="max-w-xl mx-auto space-y-2">

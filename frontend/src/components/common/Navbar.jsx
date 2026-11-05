@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation as useRouterLocation } from 'react-router-dom';
 import { 
   ShoppingBag, 
   User as UserIcon, 
@@ -7,23 +7,23 @@ import {
   X, 
   LogOut, 
   ShieldCheck, 
-  Heart, 
-  Clock, 
+  MapPin, 
   Search,
-  Sparkles,
-  MapPin
+  Navigation
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
+import { useLocation } from '../../context/LocationContext';
 
 const Navbar = () => {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const { itemCount, setIsCartOpen } = useCart();
+  const { currentLocation, setIsLocationModalOpen } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
-  const location = useLocation();
+  const routerLocation = useRouterLocation();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -45,8 +45,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Location */}
-          <div className="flex items-center gap-6">
+          {/* Logo & Interactive GPS Location Pill */}
+          <div className="flex items-center gap-4 sm:gap-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-brand-500/25 group-hover:scale-105 transition-transform">
                 <span className="text-2xl">🍔</span>
@@ -61,11 +61,24 @@ const Navbar = () => {
               </div>
             </Link>
 
-            {/* City deliver pill */}
-            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-100 text-xs font-semibold text-stone-600 hover:bg-stone-200/70 transition-colors cursor-pointer">
-              <MapPin className="w-3.5 h-3.5 text-brand-600" />
-              <span>San Francisco, CA</span>
-            </div>
+            {/* Clickable GPS Location Pill */}
+            <button
+              onClick={() => setIsLocationModalOpen(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-100 hover:bg-brand-50 border border-stone-200/80 hover:border-brand-300 text-xs font-bold text-stone-700 hover:text-brand-700 transition-all cursor-pointer shadow-xs max-w-[150px] sm:max-w-[210px] truncate"
+              title="Click to set delivery location or detect GPS"
+            >
+              {currentLocation.isGPS ? (
+                <Navigation className="w-3.5 h-3.5 text-brand-600 animate-pulse shrink-0" />
+              ) : (
+                <MapPin className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+              )}
+              <span className="truncate">
+                {currentLocation.city || 'Set Location'}
+              </span>
+              <span className="text-[10px] text-brand-600 font-extrabold uppercase shrink-0 bg-brand-100/80 px-1.5 py-0.2 rounded-md">
+                GPS
+              </span>
+            </button>
           </div>
 
           {/* Desktop Search */}
@@ -85,7 +98,7 @@ const Navbar = () => {
           {/* Navigation Links */}
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
+              const isActive = routerLocation.pathname === link.path;
               return (
                 <Link
                   key={link.name}
@@ -209,6 +222,20 @@ const Navbar = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-stone-200 px-4 pt-3 pb-6 space-y-4">
+          <button
+            onClick={() => {
+              setIsLocationModalOpen(true);
+              setMobileMenuOpen(false);
+            }}
+            className="w-full flex items-center justify-between p-3 rounded-xl bg-stone-100 text-xs font-bold text-stone-800"
+          >
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-brand-600" />
+              <span>Location: {currentLocation.city}</span>
+            </div>
+            <span className="text-[10px] text-brand-600 uppercase font-black">Change (GPS)</span>
+          </button>
+
           <form onSubmit={handleSearchSubmit} className="relative">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-600" />
             <input

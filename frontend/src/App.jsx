@@ -2,10 +2,12 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
+import { LocationProvider } from './context/LocationContext';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import CartDrawer from './components/cart/CartDrawer';
 import Toast from './components/common/Toast';
+import LocationModal from './components/common/LocationModal';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -45,6 +47,7 @@ const AppContent = () => {
       {!isAdminRoute && <Footer />}
       <CartDrawer />
       <Toast />
+      <LocationModal />
     </div>
   );
 };
@@ -52,11 +55,13 @@ const AppContent = () => {
 function App() {
   return (
     <AuthProvider>
-      <CartProvider>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
-      </CartProvider>
+      <LocationProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
+        </CartProvider>
+      </LocationProvider>
     </AuthProvider>
   );
 }
