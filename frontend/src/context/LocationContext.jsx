@@ -3,15 +3,15 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const LocationContext = createContext(null);
 
 export const PRESET_LOCATIONS = [
+  { city: 'Guntur', state: 'AP', address: 'Brodipet & Arundelpet, Guntur, AP 522002', latitude: 16.3067, longitude: 80.4365 },
+  { city: 'Vijayawada', state: 'AP', address: 'MG Road, Vijayawada, AP 520010', latitude: 16.5062, longitude: 80.6480 },
+  { city: 'Hyderabad', state: 'TS', address: 'Hitec City, Hyderabad, TS 500081', latitude: 17.3850, longitude: 78.4867 },
+  { city: 'Bangalore', state: 'KA', address: 'Indiranagar, Bangalore, India', latitude: 12.9784, longitude: 77.6408 },
+  { city: 'Mumbai', state: 'MH', address: 'Bandra West, Mumbai, India', latitude: 19.0596, longitude: 72.8295 },
+  { city: 'New Delhi', state: 'DL', address: 'Connaught Place, New Delhi, India', latitude: 28.6139, longitude: 77.2090 },
   { city: 'San Francisco', state: 'CA', address: 'Market St & 4th, San Francisco, CA', latitude: 37.7858, longitude: -122.4064 },
   { city: 'New York', state: 'NY', address: '5th Ave & 42nd St, New York, NY', latitude: 40.7527, longitude: -73.9818 },
-  { city: 'Los Angeles', state: 'CA', address: 'Sunset Blvd, Los Angeles, CA', latitude: 34.0983, longitude: -118.3267 },
-  { city: 'Chicago', state: 'IL', address: 'Michigan Ave, Chicago, IL', latitude: 41.8917, longitude: -87.6244 },
-  { city: 'Seattle', state: 'WA', address: 'Pike Place, Seattle, WA', latitude: 47.6097, longitude: -122.3421 },
-  { city: 'Austin', state: 'TX', address: 'Congress Ave, Austin, TX', latitude: 30.2672, longitude: -97.7431 },
   { city: 'London', state: 'UK', address: 'Oxford Street, London, UK', latitude: 51.5154, longitude: -0.1419 },
-  { city: 'Mumbai', state: 'MH', address: 'Bandra West, Mumbai, India', latitude: 19.0596, longitude: 72.8295 },
-  { city: 'Bangalore', state: 'KA', address: 'Indiranagar, Bangalore, India', latitude: 12.9784, longitude: 77.6408 },
 ];
 
 export const LocationProvider = ({ children }) => {
@@ -19,7 +19,8 @@ export const LocationProvider = ({ children }) => {
     const saved = localStorage.getItem('foodiehub_location');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.city !== 'San Francisco') return parsed;
       } catch (e) {
         // fallback
       }

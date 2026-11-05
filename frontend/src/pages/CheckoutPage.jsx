@@ -34,11 +34,11 @@ const CheckoutPage = () => {
   // New address form state
   const [newAddress, setNewAddress] = useState({
     label: 'Home',
-    address_line: currentLocation.address || '',
-    city: currentLocation.city || 'San Francisco',
-    state: currentLocation.state || 'CA',
-    postal_code: '94107',
-    phone: user?.phone || '',
+    address_line: currentLocation.address || 'Brodipet, 4th Lane',
+    city: currentLocation.city || 'Guntur',
+    state: currentLocation.state || 'AP',
+    postal_code: '522002',
+    phone: user?.phone || '9492438966',
   });
 
   useEffect(() => {

@@ -13,7 +13,7 @@ def seed_database():
     admin = User(
         name="Alexander Vance (Admin)",
         email="admin@foodiehub.com",
-        phone="+1 555-0199",
+        phone="+91 9492438966",
         role="admin",
         avatar_url="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop"
     )
@@ -22,7 +22,7 @@ def seed_database():
     customer = User(
         name="Sophia Martinez",
         email="customer@foodiehub.com",
-        phone="+1 555-0144",
+        phone="+91 9492438966",
         role="customer",
         avatar_url="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
     )
@@ -35,21 +35,21 @@ def seed_database():
     addr1 = Address(
         user_id=customer.id,
         label="Home",
-        address_line="742 Evergreen Terrace, Apt 4B",
-        city="San Francisco",
-        state="CA",
-        postal_code="94107",
-        phone="+1 555-0144",
+        address_line="Brodipet 4th Lane, Flat 3A",
+        city="Guntur",
+        state="AP",
+        postal_code="522002",
+        phone="+91 9492438966",
         is_default=True
     )
     addr2 = Address(
         user_id=customer.id,
         label="Work",
-        address_line="500 Howard Street, Fl 12",
-        city="San Francisco",
-        state="CA",
-        postal_code="94105",
-        phone="+1 555-0144",
+        address_line="Arundelpet Main Road, Suite 201",
+        city="Guntur",
+        state="AP",
+        postal_code="522002",
+        phone="+91 9492438966",
         is_default=False
     )
     db.session.add_all([addr1, addr2])
@@ -80,7 +80,7 @@ def seed_database():
         min_order=12.0,
         image_url="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&fit=crop",
-        address="104 Mission Bay Blvd, San Francisco",
+        address="Brodipet 4th Lane, Guntur, AP",
         is_featured=True,
         is_active=True
     )
@@ -96,7 +96,7 @@ def seed_database():
         min_order=10.0,
         image_url="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&fit=crop",
-        address="322 Valencia St, San Francisco",
+        address="Arundelpet Main Road, Guntur, AP",
         is_featured=True,
         is_active=True
     )
@@ -112,7 +112,7 @@ def seed_database():
         min_order=20.0,
         image_url="https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200&fit=crop",
-        address="810 Post St, San Francisco",
+        address="Lakshmipuram Circle, Guntur, AP",
         is_featured=True,
         is_active=True
     )
@@ -128,7 +128,7 @@ def seed_database():
         min_order=15.0,
         image_url="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200&fit=crop",
-        address="560 Geary St, San Francisco",
+        address="Collector Office Road, Guntur, AP",
         is_featured=True,
         is_active=True
     )
@@ -144,7 +144,7 @@ def seed_database():
         min_order=10.0,
         image_url="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&fit=crop",
-        address="415 Brannan St, San Francisco",
+        address="Koretipadu Main Road, Guntur, AP",
         is_featured=False,
         is_active=True
     )
@@ -160,7 +160,7 @@ def seed_database():
         min_order=14.0,
         image_url="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&fit=crop",
         banner_url="https://images.unsplash.com/photo-1621996346565-e3d5d6281292?w=1200&fit=crop",
-        address="239 Columbus Ave, San Francisco",
+        address="Old Club Road, Guntur, AP",
         is_featured=False,
         is_active=True
     )
